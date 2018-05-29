@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"regexp"
 	"strconv"
@@ -10,6 +11,10 @@ import (
 )
 
 func puppetEnroll() error {
+	if puppetSSlDir == "" {
+		return errors.New("The Puppet scheme requires its ssl directory set on the CLI, see --help")
+	}
+
 	cfg := puppetsec.Config{
 		Identity:   identity,
 		SSLDir:     puppetSSlDir,
