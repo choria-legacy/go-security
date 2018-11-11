@@ -69,6 +69,10 @@ type Config struct {
 
 	// DisableTLSVerify disables TLS verify in HTTP clients etc
 	DisableTLSVerify bool
+
+	// Disable per-request check of certificate caches - this will still write the certificates
+	// to disk, but will not check if they exist or not.
+	DisableCacheCheck bool
 }
 
 // Option is a function that can configure the File Security Provider
@@ -77,14 +81,15 @@ type Option func(*FileSecurity) error
 // WithChoriaConfig optionally configures the File Security Provider from settings found in a typical Choria configuration
 func WithChoriaConfig(c *config.Config) Option {
 	cfg := Config{
-		AllowList:        c.Choria.CertnameWhitelist,
-		CA:               c.Choria.FileSecurityCA,
-		Cache:            c.Choria.FileSecurityCache,
-		Certificate:      c.Choria.FileSecurityCertificate,
-		DisableTLSVerify: c.DisableTLSVerify,
-		Key:              c.Choria.FileSecurityKey,
-		PrivilegedUsers:  c.Choria.PrivilegedUsers,
-		Identity:         c.Identity,
+		AllowList:         c.Choria.CertnameWhitelist,
+		CA:                c.Choria.FileSecurityCA,
+		Cache:             c.Choria.FileSecurityCache,
+		Certificate:       c.Choria.FileSecurityCertificate,
+		DisableTLSVerify:  c.DisableTLSVerify,
+		Key:               c.Choria.FileSecurityKey,
+		PrivilegedUsers:   c.Choria.PrivilegedUsers,
+		Identity:          c.Identity,
+		DisableCacheCheck: c.Choria.FileSecurityDisableCache,
 	}
 
 	if cn, ok := os.LookupEnv("MCOLLECTIVE_CERTNAME"); ok {
@@ -333,10 +338,12 @@ func (s *FileSecurity) CachePublicData(data []byte, identity string) error {
 		return err
 	}
 
-	_, err = os.Stat(certfile)
-	if err == nil {
-		s.log.Debugf("Already have a certificate in %s, refusing to overwrite with a new one", certfile)
-		return nil
+	if !s.conf.DisableCacheCheck {
+		_, err = os.Stat(certfile)
+		if err == nil {
+			s.log.Debugf("Already have a certificate in %s, refusing to overwrite with a new one", certfile)
+			return nil
+		}
 	}
 
 	err = ioutil.WriteFile(certfile, []byte(data), os.FileMode(int(0644)))
@@ -423,16 +430,12 @@ func (s *FileSecurity) VerifyCertificate(certpem []byte, name string) error {
 		return err
 	}
 
-	intermediates := x509.NewCertPool()
-	if !intermediates.AppendCertsFromPEM(certpem) {
-		s.log.Warnf("Could not add intermediates: %s", err)
-		return err
-	}
+	roots.AppendCertsFromPEM(block.Bytes)
 
 	opts := x509.VerifyOptions{
-		Roots: roots,
-		Intermediates: intermediates,
-		KeyUsages: []x509.ExtKeyUsage{x509.ExtKeyUsageClientAuth},
+		Roots:         roots,
+		Intermediates: roots,
+		KeyUsages:     []x509.ExtKeyUsage{x509.ExtKeyUsageClientAuth},
 	}
 
 	if name != "" {
@@ -444,6 +447,17 @@ func (s *FileSecurity) VerifyCertificate(certpem []byte, name string) error {
 		s.log.Warnf("Certificate does not pass verification as '%s': %s", name, err)
 		return err
 	}
+
+	if cert.hasSANExtension() {
+		s.log.Warn("Has a SAN extension")
+
+	}
+
+	// var oidExtensionSubjectAltName = asn1.ObjectIdentifier{2, 5, 29, 17}
+
+	// for _, ext := range cert.Extensions {
+	//	if ext.Id.Equal(oidExtensionSubjectAltName)
+	// }
 
 	return nil
 }
