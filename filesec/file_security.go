@@ -69,17 +69,9 @@ type Config struct {
 
 	// DisableTLSVerify disables TLS verify in HTTP clients etc
 	DisableTLSVerify bool
-<<<<<<< Updated upstream
-
-	// Disable per-request check of certificate caches - this will still write the certificates
-	// to disk, but will not check if they exist or not.
-	DisableCacheCheck bool
-||||||| merged common ancestors
-=======
 
 	//Support always overwriting the local filesystem cache
 	AlwaysOverwriteCache bool
->>>>>>> Stashed changes
 }
 
 // Option is a function that can configure the File Security Provider
@@ -88,26 +80,6 @@ type Option func(*FileSecurity) error
 // WithChoriaConfig optionally configures the File Security Provider from settings found in a typical Choria configuration
 func WithChoriaConfig(c *config.Config) Option {
 	cfg := Config{
-<<<<<<< Updated upstream
-		AllowList:         c.Choria.CertnameWhitelist,
-		CA:                c.Choria.FileSecurityCA,
-		Cache:             c.Choria.FileSecurityCache,
-		Certificate:       c.Choria.FileSecurityCertificate,
-		DisableTLSVerify:  c.DisableTLSVerify,
-		Key:               c.Choria.FileSecurityKey,
-		PrivilegedUsers:   c.Choria.PrivilegedUsers,
-		Identity:          c.Identity,
-		DisableCacheCheck: c.Choria.FileSecurityDisableCache,
-||||||| merged common ancestors
-		AllowList:        c.Choria.CertnameWhitelist,
-		CA:               c.Choria.FileSecurityCA,
-		Cache:            c.Choria.FileSecurityCache,
-		Certificate:      c.Choria.FileSecurityCertificate,
-		DisableTLSVerify: c.DisableTLSVerify,
-		Key:              c.Choria.FileSecurityKey,
-		PrivilegedUsers:  c.Choria.PrivilegedUsers,
-		Identity:         c.Identity,
-=======
 		AllowList:            c.Choria.CertnameWhitelist,
 		CA:                   c.Choria.FileSecurityCA,
 		Cache:                c.Choria.FileSecurityCache,
@@ -117,7 +89,6 @@ func WithChoriaConfig(c *config.Config) Option {
 		PrivilegedUsers:      c.Choria.PrivilegedUsers,
 		Identity:             c.Identity,
 		AlwaysOverwriteCache: c.Choria.SecurityAlwaysOverwriteCache,
->>>>>>> Stashed changes
 	}
 
 	if cn, ok := os.LookupEnv("MCOLLECTIVE_CERTNAME"); ok {
@@ -366,26 +337,12 @@ func (s *FileSecurity) CachePublicData(data []byte, identity string) error {
 		return err
 	}
 
-<<<<<<< Updated upstream
-	if !s.conf.DisableCacheCheck {
-		_, err = os.Stat(certfile)
-		if err == nil {
-			s.log.Debugf("Already have a certificate in %s, refusing to overwrite with a new one", certfile)
-			return nil
-		}
-||||||| merged common ancestors
-	_, err = os.Stat(certfile)
-	if err == nil {
-		s.log.Debugf("Already have a certificate in %s, refusing to overwrite with a new one", certfile)
-		return nil
-=======
 	if !s.conf.AlwaysOverwriteCache {
 		_, err = os.Stat(certfile)
 		if err == nil {
 			s.log.Debugf("Already have a certificate in %s, refusing to overwrite with a new one", certfile)
 			return nil
 		}
->>>>>>> Stashed changes
 	}
 
 	err = ioutil.WriteFile(certfile, []byte(data), os.FileMode(int(0644)))
