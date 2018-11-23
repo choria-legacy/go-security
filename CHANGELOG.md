@@ -1,5 +1,7 @@
 |Date      |Issue |Description                                                                                              |
 |----------|------|---------------------------------------------------------------------------------------------------------|
+|2018/11/23|      |Release 0.2.1                                                                                            |
+|2018/11/23|22    |Improve compatibility with Ruby Choria by supporting slashes in regex                                    |
 |2018/11/15|      |Release 0.2.0                                                                                            |
 |2018/11/11|18    |Allow caching to always overwrite cached certificates to deal with short lived certificates              |
 |2018/11/11|16    |Validate certificates before caching to ensure future policy changes are re-evaluated                    |
