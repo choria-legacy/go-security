@@ -1,5 +1,9 @@
 |Date      |Issue |Description                                                                                              |
 |----------|------|---------------------------------------------------------------------------------------------------------|
+|2019/01/17|      |Release 0.3.0                                                                                            |
+|2019/01/03|27    |Validate privileged certificates using their expected name instead of the claimed caller                 |
+|2019/01/02|28    |Allow callerid schemes other than `choria=`                                                              |
+|2019/01/02|29    |When checking cert validations check privileged ones first                                               |
 |2018/11/23|      |Release 0.2.1                                                                                            |
 |2018/11/23|22    |Improve compatibility with Ruby Choria by supporting slashes in regex                                    |
 |2018/11/15|      |Release 0.2.0                                                                                            |
