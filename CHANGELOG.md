@@ -1,5 +1,9 @@
 |Date      |Issue |Description                                                                                              |
 |----------|------|---------------------------------------------------------------------------------------------------------|
+|2019/05/23|      |Release 0.4.0                                                                                            |
+|2019/05/23|40    |Fix SecurityAlwaysOverwriteCache handling for the Puppet provider                                        |
+|2019/05/22|38    |Should a user cert AND a privileged cert exist, check user cert first                                    |
+|2019/05/22|36    |When SecurityAlwaysOverwriteCache is set, only write when the certs actually change                      |
 |2019/01/17|      |Release 0.3.0                                                                                            |
 |2019/01/03|27    |Validate privileged certificates using their expected name instead of the claimed caller                 |
 |2019/01/02|28    |Allow callerid schemes other than `choria=`                                                              |
