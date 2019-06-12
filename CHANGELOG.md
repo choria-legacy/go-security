@@ -1,6 +1,7 @@
 |Date      |Issue |Description                                                                                              |
 |----------|------|---------------------------------------------------------------------------------------------------------|
-|2019/06/12|      |Release 0.4.1                                                                                            |
+|2019/06/12|      |Release 0.4.2                                                                                            |
+|2019/04/20|35    |Support email SANs in certificate names                                                                  |
 |2019/05/29|43    |Log privileged cert caches only when the cache is changed                                                |
 |2019/05/23|      |Release 0.4.0                                                                                            |
 |2019/05/23|40    |Fix SecurityAlwaysOverwriteCache handling for the Puppet provider                                        |
