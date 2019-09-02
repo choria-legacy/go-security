@@ -2,12 +2,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.12
+      - image: choria/packager:debian-go1.12
 
     working_directory: /go/src/github.com/choria-io/go-security
 
     environment:
       GO111MODULE: "on"
+      RUN_PKCS11_TESTS: "1"
 
     steps:
       - checkout
