@@ -1,5 +1,6 @@
 github.com/AlecAivazis/survey/v2 v2.0.2 h1:5ScTKXjUTxr3RFiehUNlb4xXjdCms97HOF//hDRDc/I=
 github.com/AlecAivazis/survey/v2 v2.0.2/go.mod h1:WYBhg6f0y/fNYUuesWQc0PKbJcEliGcYHB9sNT3Bg74=
+github.com/Netflix/go-expect v0.0.0-20180615182759-c93bf25de8e8 h1:xzYJEypr/85nBpB11F9br+3HUrpgb+fcm5iADzXXYEw=
 github.com/Netflix/go-expect v0.0.0-20180615182759-c93bf25de8e8/go.mod h1:oX5x61PbNXchhh0oikYAH+4Pcfw5LKv21+Jnpr6r6Pc=
 github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc h1:cAKDfWh5VpdgMhJosfJnn5/FoN2SRZ4p7fJNX58YPaU=
 github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
@@ -8,12 +9,8 @@ github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf/go.mod h1:ybxpYRF
 github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=
 github.com/beorn7/perks v1.0.0 h1:HWo1m869IqiPhD389kmkxeTalrjNbbJTC8LXupb+sl0=
 github.com/beorn7/perks v1.0.0/go.mod h1:KWe93zE9D1o94FZ5RNwFwVgaQK1VOXiVxmqh+CedLV8=
-github.com/choria-io/go-config v0.0.0-20190625114926-34befa33b967 h1:LxTFxXHsdkeYuSQewQ3KfteIU2YKzYGRnitMr60izno=
-github.com/choria-io/go-config v0.0.0-20190625114926-34befa33b967/go.mod h1:YEb0InKPzG3wRSbfN3xZ/MjQ1FEzbmeq9FAo6yUnylM=
-github.com/choria-io/go-config v0.0.3-0.20190815134328-89ae8271ae95 h1:fBgHJgQqWyLLqW3yZQ/dHc52Gihi76JaG1MC9vWzK3A=
-github.com/choria-io/go-config v0.0.3-0.20190815134328-89ae8271ae95/go.mod h1:y2mXxXQ865arJG3WxqQZD2or9cS3wAFD5r/krm9dYN4=
-github.com/choria-io/go-confkey v1.2.0 h1:kT35wUPPxpKDAg2/Me100yIV+po6aTrnZFyBXk0Ohn8=
-github.com/choria-io/go-confkey v1.2.0/go.mod h1:ojIUK4p2mX/ZSKuSG5hgU/p7Db+EIX8il4yjQweZtiU=
+github.com/choria-io/go-config v0.0.3 h1:7JKUHKMSfPE/qB0MdnWj26kfiT16MReFmTtYMnX2TKI=
+github.com/choria-io/go-config v0.0.3/go.mod h1:y2mXxXQ865arJG3WxqQZD2or9cS3wAFD5r/krm9dYN4=
 github.com/choria-io/go-confkey v1.3.0 h1:KlqctKfo843I2Uas2vLFOzScyjSMyKFUsSf/FdMRuQI=
 github.com/choria-io/go-confkey v1.3.0/go.mod h1:ojIUK4p2mX/ZSKuSG5hgU/p7Db+EIX8il4yjQweZtiU=
 github.com/choria-io/go-puppet v0.0.1 h1:vvvMwgLeZDjHXGHhMVAVC9YwMKegcywSqrmyFcnD/jk=
@@ -36,13 +33,10 @@ github.com/golang/mock v1.3.1/go.mod h1:sBzyDLLjw3U8JLTeZvSv8jJB+tU5PVekmnlKIyFU
 github.com/golang/protobuf v1.2.0/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
 github.com/golang/protobuf v1.3.1 h1:YF8+flBXS5eO826T4nzqPrxfhQThhXl0YzfuUPu4SBg=
 github.com/golang/protobuf v1.3.1/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
+github.com/hinshun/vt10x v0.0.0-20180616224451-1954e6464174 h1:WlZsjVhE8Af9IcZDGgJGQpNflI3+MJSBhsgT5PCtzBQ=
 github.com/hinshun/vt10x v0.0.0-20180616224451-1954e6464174/go.mod h1:DqJ97dSdRW1W22yXSB90986pcOyQ7r45iio1KN2ez1A=
-github.com/howeyc/gopass v0.0.0-20170109162249-bf9dde6d0d2c h1:kQWxfPIHVLbgLzphqk3QUflDy9QdksZR4ygR807bpy0=
-github.com/howeyc/gopass v0.0.0-20170109162249-bf9dde6d0d2c/go.mod h1:lADxMC39cJJqL93Duh1xhAs4I2Zs8mKS89XWXFGp9cs=
 github.com/hpcloud/tail v1.0.0 h1:nfCOvKYfkgYP8hkirhJocXT2+zOD8yUNjXaWfTlyFKI=
 github.com/hpcloud/tail v1.0.0/go.mod h1:ab1qPbhIpdTxEkNHXyeSf5vhxWSCs/tWer42PpOxQnU=
-github.com/imdario/mergo v0.3.7 h1:Y+UAYTZ7gDEuOfhxKWy+dvb5dRQ6rJjFSdX2HZY1/gI=
-github.com/imdario/mergo v0.3.7/go.mod h1:2EnlNZ0deacrJVfApfmtdGgDfMuh/nq6Ok1EcJh5FfA=
 github.com/json-iterator/go v1.1.6/go.mod h1:+SdeFBvtyEkXs7REEP0seUULqWtbJapLOCVDaaPEHmU=
 github.com/julienschmidt/httprouter v1.2.0/go.mod h1:SYymIcj16QtmaHHD7aYtjjsJG7VTCxuUUipMqKk8s4w=
 github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 h1:Z9n2FFNUXsshfwJMBgNA0RU6/i7WVaAegv3PtuIHPMs=
@@ -50,6 +44,7 @@ github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51/go.mod h1:C
 github.com/konsorten/go-windows-terminal-sequences v1.0.1 h1:mweAR1A6xJ3oS2pRaGiHgQ4OO8tzTaLawm8vnODuwDk=
 github.com/konsorten/go-windows-terminal-sequences v1.0.1/go.mod h1:T0+1ngSBFLxvqU3pZ+m/2kptfBszLMUkC4ZK/EgS/cQ=
 github.com/kr/logfmt v0.0.0-20140226030751-b84e30acd515/go.mod h1:+0opPa2QZZtGFBFZlji/RkVcI2GknAs/DXo4wKdlNEc=
+github.com/kr/pty v1.1.4 h1:5Myjjh3JY/NaAi4IsUbHADytDyl1VE1Y9PXDlL+P/VQ=
 github.com/kr/pty v1.1.4/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/mattn/go-colorable v0.1.2 h1:/bC9yWikZXAL9uJdulbSfyVNIR3n3trXl+v8+1sx8mU=
 github.com/mattn/go-colorable v0.1.2/go.mod h1:U0ppj6V5qS13XJ6of8GYAs25YV2eR4EVcfRqFIhoBtE=
