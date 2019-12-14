@@ -12,7 +12,7 @@ import (
 
 func puppetEnroll() error {
 	if puppetSSlDir == "" {
-		return errors.New("The Puppet scheme requires its ssl directory set on the CLI, see --help")
+		return errors.New("the Puppet scheme requires its ssl directory set on the CLI, see --help")
 	}
 
 	cfg := puppetsec.Config{
@@ -21,7 +21,7 @@ func puppetEnroll() error {
 		DisableSRV: true,
 	}
 
-	re := regexp.MustCompile("^((([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9]))\\:(\\d+)$")
+	re := regexp.MustCompile(`^((([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9]))\:(\d+)$`)
 
 	if re.MatchString(puppetCA) {
 		parts := strings.Split(puppetCA, ":")
