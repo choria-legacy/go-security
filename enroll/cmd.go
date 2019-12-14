@@ -3,8 +3,6 @@ package main
 import (
 	"context"
 	"os"
-	"os/signal"
-	"syscall"
 	"time"
 
 	"github.com/sirupsen/logrus"
@@ -63,19 +61,5 @@ func Run() {
 		kingpin.FatalIfError(puppetEnroll(), "Enrolling with Puppet failed")
 	default:
 		kingpin.Fatalf("Invalid scheme '%s'", scheme)
-	}
-}
-
-func interruptWatcher() {
-	sigs := make(chan os.Signal, 1)
-	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM, syscall.SIGQUIT)
-
-	for {
-		select {
-		case <-sigs:
-			cancel()
-		case <-ctx.Done():
-			return
-		}
 	}
 }
