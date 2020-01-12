@@ -1,5 +1,8 @@
 |Date      |Issue |Description                                                                                              |
 |----------|------|---------------------------------------------------------------------------------------------------------|
+|2020/01/12|      |Release 0.6.0                                                                                            |
+|2019/12/31|62    |Add a generic Rego helper for OPA integration                                                            |
+|2019/12/15|58    |Support remote signers like aaasvc                                                                       |
 |2019/09/06|      |Release 0.5.0                                                                                            |
 |2019/08/05|      |Add `pkcs11` support                                                                                     |
 |2019/06/21|      |Release 0.4.3                                                                                            |
