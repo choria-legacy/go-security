@@ -4,7 +4,7 @@ go 1.13
 
 require (
 	github.com/AlecAivazis/survey/v2 v2.0.5
-	github.com/choria-io/go-config v0.0.6
+	github.com/choria-io/go-config v0.0.7-0.20200120111917-f015c57b243e
 	github.com/choria-io/go-puppet v0.0.1
 	github.com/choria-io/go-srvcache v0.0.6
 	github.com/golang/mock v1.3.1
